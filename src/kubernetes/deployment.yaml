@@ -108,3 +108,15 @@ spec:
             periodSeconds: ${VendorExternalDnsAwsSyncPublic/ProbeStartupPeriod}
             timeoutSeconds: ${VendorExternalDnsAwsSyncPublic/ProbeTimeoutSeconds}
             failureThreshold: ${VendorExternalDnsAwsSyncPublic/ProbeStartupFailureThreshold}
+          resources:
+            requests:
+              cpu: "${VendorExternalDnsAwsSyncPublic/CpuRequest}"
+              memory: "${VendorExternalDnsAwsSyncPublic/Memory}"
+            limits:
+              memory: "${VendorExternalDnsAwsSyncPublic/Memory}"
+          env:
+            - name: GOMEMLIMIT
+              valueFrom:
+                resourceFieldRef:
+                  resource: limits.memory
+                  divisor: ${VendorExternalDnsAwsSyncPublic/GoMemLimitDivisor}
