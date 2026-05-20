@@ -336,10 +336,10 @@ provider:  # @schema type: [object, string]
 extraArgs:  # @schema type: [array, null, object]; item: string; uniqueItems: true
   - --aws-zone-type=public
   - --txt-prefix=_${ProjectName}.
-  - --events=${VendorExternalDnsAwsSyncPublic/Events}
+  - ${VendorExternalDnsAwsSyncPublic/EventsFlag}
   - --min-event-sync-interval=${VendorExternalDnsAwsSyncPublic/MinEventSyncInterval}
   - --aws-zones-cache-duration=${VendorExternalDnsAwsSyncPublic/AwsZonesCacheDuration}
-  - --aws-evaluate-target-health=${VendorExternalDnsAwsSyncPublic/AwsEvaluateTargetHealth}
+  - --aws-evaluate-target-health
   - --min-ttl=${VendorExternalDnsAwsSyncPublic/MinTtl}
   - --namespace=${VendorExternalDnsAwsSyncPublic/Namespace}
 
